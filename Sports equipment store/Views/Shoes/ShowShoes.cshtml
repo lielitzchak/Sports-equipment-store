@@ -1,0 +1,12 @@
+﻿@using Sports_equipment_store.Models;
+
+<button onclick=" ">click to meneger</button>
+
+@{ foreach (Shoe shoe in Model)
+    {
+        <img src="@shoe.linkToImage" alt="shoes" />
+        <h2>type: @shoe.shoeType</h2>
+        <h2>company: @shoe.company</h2>
+        <h2> price: @shoe.price $</h2>
+    }
+}
