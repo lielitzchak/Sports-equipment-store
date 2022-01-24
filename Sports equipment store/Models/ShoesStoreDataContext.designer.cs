@@ -92,7 +92,7 @@ namespace Sports_equipment_store.Models
 		
 		private System.Nullable<int> _amount;
 		
-		private System.Nullable<bool> _IsOperation;
+		private System.Nullable<bool> _isSale;
 		
 		private string _LinkToImage;
 		
@@ -112,8 +112,8 @@ namespace Sports_equipment_store.Models
     partial void OnpriceChanged();
     partial void OnamountChanging(System.Nullable<int> value);
     partial void OnamountChanged();
-    partial void OnIsOperationChanging(System.Nullable<bool> value);
-    partial void OnIsOperationChanged();
+    partial void OnisSaleChanging(System.Nullable<bool> value);
+    partial void OnisSaleChanged();
     partial void OnLinkToImageChanging(string value);
     partial void OnLinkToImageChanged();
     #endregion
@@ -243,28 +243,28 @@ namespace Sports_equipment_store.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsOperation", DbType="Bit")]
-		public System.Nullable<bool> IsOperation
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isSale", DbType="Bit")]
+		public System.Nullable<bool> isSale
 		{
 			get
 			{
-				return this._IsOperation;
+				return this._isSale;
 			}
 			set
 			{
-				if ((this._IsOperation != value))
+				if ((this._isSale != value))
 				{
-					this.OnIsOperationChanging(value);
+					this.OnisSaleChanging(value);
 					this.SendPropertyChanging();
-					this._IsOperation = value;
-					this.SendPropertyChanged("IsOperation");
-					this.OnIsOperationChanged();
+					this._isSale = value;
+					this.SendPropertyChanged("isSale");
+					this.OnisSaleChanged();
 				}
 			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LinkToImage", DbType="VarChar(MAX)")]
-		public string linkToImage
+		public string LinkToImage
 		{
 			get
 			{

@@ -21,9 +21,8 @@ namespace Sports_equipment_store.Controllers.API
         {
             try
             {
-                List<Shoe> Shoes = dataContext.Shoes.ToList();
-
-                return View(Shoes);
+                List<Shoe> shoes = dataContext.Shoes.ToList();
+                return View(shoes);
 
             }
             catch (Exception ex)
@@ -34,6 +33,39 @@ namespace Sports_equipment_store.Controllers.API
 
 
         }
+        public ActionResult ManagerClick()
+        {
+            try
+            {
+                List<Shoe> shoes = dataContext.Shoes.ToList();
+                return View(shoes);
 
+            }
+            catch (Exception ex)
+            {
+                return View(ex);
+            }
+
+
+        }
+        public ActionResult OnlySale()
+        {
+            try
+            {
+                List<Shoe> shoes = new List<Shoe>();
+                foreach (Shoe sho in dataContext.Shoes)
+                {
+                    if (sho.isSale == true)
+                    {
+                        shoes.Add(sho);
+                    } 
+                }
+                return View(shoes);
+            }
+            catch (Exception ex)
+            {
+                return View(ex);
+            }
+        }
     }
 }

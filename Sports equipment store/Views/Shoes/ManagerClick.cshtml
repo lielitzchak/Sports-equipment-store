@@ -1,0 +1,32 @@
+﻿@using Sports_equipment_store.Models;
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">shoe Type</th>
+                <th scope="col">model</th>
+                <th scope="col">price</th>
+                <th scope="col">amount</th>
+                <th scope="col">sale</th>
+                <th scope="col">image</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ foreach (Shoe shoe in Model)
+                {
+                        <tr>
+                            <td> @shoe.Id</td>
+                            <td> @shoe.shoeType</td>
+                            <td> @shoe.model</td>
+                            <td> @shoe.price $</td>
+                            <td> @shoe.amount</td>
+                            <td> @shoe.isSale</td>
+                            <td><img src="@shoe.LinkToImage" alt=""  class="img-thumbnail"/></td>
+                        </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
