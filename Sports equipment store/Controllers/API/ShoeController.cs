@@ -12,13 +12,14 @@ namespace Sports_equipment_store.Controllers.API
 {
     public class ShoeController : ApiController
     {
-        public ShoesDataContextDataContext dataContext = new ShoesDataContextDataContext();
+        static string StringConnection = "Data Source=LIEL-ITZCHAK;Initial Catalog=SportsEquipmentSoreDB;Integrated Security=True;Pooling=False";
+        public ShoesDataContextDataContext shoesDB = new ShoesDataContextDataContext(StringConnection);
         // GET: api/Shoe
         public IHttpActionResult Get()
         {
             try
             {
-                Table<Shoe> shoes = dataContext.Shoes;
+                Table<Shoe> shoes = shoesDB.Shoes;
                 return Ok(new { shoes });
             }
             catch (Exception ex)
@@ -33,7 +34,7 @@ namespace Sports_equipment_store.Controllers.API
         {
             try
             {
-                Shoe SingleShoe = dataContext.Shoes.Single(item => item.Id == id);
+                Shoe SingleShoe = shoesDB.Shoes.Single(item => item.Id == id);
                 if (SingleShoe != null)
                 {
                     return Ok(SingleShoe);
@@ -47,20 +48,13 @@ namespace Sports_equipment_store.Controllers.API
             }
         }
 
-        //// POST: api/Shoe
-        public async Task<IHttpActionResult> Post([FromBody] Shoe Shoe)
+        //// POST: api/Shoe 
+        public IHttpActionResult Post([FromBody] Shoe shoe)
         {
             try
             {
-                //HospitalDB.Patients.Add(patient);
-                //await HospitalDB.SaveChangesAsync();
-                //return Ok("saved");
-
-
-                dataContext.Shoes.Add(Shoe);
-                await dataContext.asyn
-                //shoe.Add(shoe);
-                dataContext.SubmitChanges();
+                shoesDB.Shoes.InsertOnSubmit(shoe);
+                shoesDB.SubmitChanges();
                 return Ok();
             }
             catch (Exception ex)
@@ -70,11 +64,24 @@ namespace Sports_equipment_store.Controllers.API
         }
 
         //// PUT: api/Shoe/5
-        public IHttpActionResult Put(int id, [FromBody] string value)
+        public IHttpActionResult Put(int id, [FromBody] Shoe shoe)
         {
             try
             {
-                return Ok();
+                Shoe SingleShoe = shoesDB.Shoes.Single(item => item.Id == id);
+                if (SingleShoe != null)
+                {
+                    SingleShoe.shoeType = shoe.shoeType;
+                    SingleShoe.company = shoe.company;
+                    SingleShoe.model = shoe.model;
+                    SingleShoe.price = shoe.price;
+                    SingleShoe.amount = shoe.amount;
+                    SingleShoe.isSale = shoe.isSale;
+                    SingleShoe.LinkToImage = shoe.LinkToImage;
+                    shoesDB.SubmitChanges();
+                    return Ok("This item has been updated");
+                }
+                return NotFound();
             }
             catch (Exception ex)
             {
@@ -87,7 +94,14 @@ namespace Sports_equipment_store.Controllers.API
         {
             try
             {
-                return Ok();
+                Shoe SingleShoe = shoesDB.Shoes.Single(item => item.Id == id);
+                if (SingleShoe != null)
+                {
+                    shoesDB.Shoes.DeleteOnSubmit(SingleShoe);
+                    shoesDB.SubmitChanges();
+                    return Ok("This item has been deleted");
+                }
+                return NotFound();
             }
             catch (Exception ex)
             {

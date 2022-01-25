@@ -144,6 +144,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\API\ClothingController.cs" />
     <Compile Include="Controllers\API\ShoeController.cs" />
     <Compile Include="Controllers\API\ShoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -205,6 +206,12 @@
     <Content Include="Views\Shoes\Index.cshtml" />
     <Content Include="Views\Shoes\ManagerClick.cshtml" />
     <Content Include="Views\Shoes\OnlySale.cshtml" />
+    <Content Include="Views\Clothing\Index.cshtml" />
+    <Content Include="Views\Clothing\OnlyLongShirt.cshtml" />
+    <Content Include="Views\Clothing\ShowClothing.cshtml" />
+    <Content Include="Views\Clothing\ManagerClickClothing.cshtml" />
+    <Content Include="Views\Clothing\OnlyShortShirts.cshtml" />
+    <Content Include="Views\Clothing\OnlyDriftShirts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

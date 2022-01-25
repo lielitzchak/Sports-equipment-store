@@ -1,0 +1,33 @@
+﻿@using Sports_equipment_store.Models;
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Type Garment</th>
+                <th scope="col">Company</th>
+                <th scope="col">Model</th>
+                <th scope="col">Price</th>
+                <th scope="col">Is Short?</th>
+                <th scope="col">Is Dreyfit? </th>
+                <th scope="col">image</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Clothing clothing in Model)
+            {
+                <tr>
+                    <td> @clothing.Id</td>
+                    <td> @clothing.TypeGarment</td>
+                    <td> @clothing.Company</td>
+                    <td> @clothing.Model</td>
+                    <td> @clothing.Price $</td>
+                    <td> @clothing.IsShort</td>
+                    <td> @clothing.IsDreyfit</td>
+                    <td><img src="@clothing.ImageLink_" alt="" class="img-thumbnail" style="max-width: 40%;" /></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

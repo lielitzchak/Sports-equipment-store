@@ -9,8 +9,8 @@ namespace Sports_equipment_store.Controllers.API
 {
     public class ShoesController : Controller
     {
-        string stringConnection = "Data Source=LIEL-ITZCHAK;Initial Catalog=SportsEquipmentSoreDB;Integrated Security=True;Pooling=False";
-        ShoesDataContextDataContext dataContext = new ShoesDataContextDataContext();
+       static string stringConnection = "Data Source=LIEL-ITZCHAK;Initial Catalog=SportsEquipmentSoreDB;Integrated Security=True;Pooling=False";
+        ShoesDataContextDataContext dataContext = new ShoesDataContextDataContext(stringConnection);
         // GET: Shoes
         public ActionResult Index()
         {
