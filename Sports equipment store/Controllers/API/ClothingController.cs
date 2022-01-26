@@ -11,7 +11,7 @@ namespace Sports_equipment_store.Controllers.API
     public class ClothingController : Controller
     {
         // GET: Clothing
-        string stringConnection = "Data Source=LIEL-ITZCHAK;Initial Catalog=SportsEquipmentSoreDB;Integrated Security=True;Pooling=False";
+        //string stringConnection = "Data Source=LIEL-ITZCHAK;Initial Catalog=SportsEquipmentSoreDB;Integrated Security=True;Pooling=False";
         ShoesDataContextDataContext dataContext = new ShoesDataContextDataContext();
         // GET: Shoes
         public ActionResult Index()

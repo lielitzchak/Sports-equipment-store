@@ -1,0 +1,28 @@
+﻿@using Sports_equipment_store.Models;
+
+@{
+    ViewBag.Title = "PantsPage";
+}
+<div>
+    <button type="button" class="dropdown-item btn btn-light">@Html.ActionLink("Only Long Shirts", "OnlyLongShirt", "Clothing")</button> <br />
+
+    <a class="" href="@Url.Action("MangerTable","Pants")"><button type="button">Manger Mode</button></a>
+    <a class="" href="@Url.Action("OnlyLongPants","Pants")"><button type="button">Long Pants</button></a>
+    <a class="" href="@Url.Action("OnlyShortsPants","Pants")"><button type="button">Short Pants</button></a>
+    <a class="" href="@Url.Action("GetOnlyDryFitPants","Pants")"><button type="button">DryFit Only</button></a>
+    <a class="" href="@Url.Action("SortByPricePants","Pants")"><button type="button">Sort</button></a>
+
+
+    <div class="cardContainer">
+        @foreach (Clothing item in @ViewBag.AllPants)
+        {
+            <div class="cardDiv">
+                <img src=@item.ImageLink_ class="">
+                <h4 class="">type:@item.TypeGarment</h4>
+                <p>model: @item.Model</p>
+                <p class="">price: @item.Price$ </p>
+                <p> company: @item.Company</p>
+            </div>
+        }
+    </div>
+</div>
