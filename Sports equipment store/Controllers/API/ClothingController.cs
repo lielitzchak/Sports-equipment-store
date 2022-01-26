@@ -10,8 +10,8 @@ namespace Sports_equipment_store.Controllers.API
 {
     public class ClothingController : Controller
     {
+        public static string shirtUpper = "SHIRT";
         // GET: Clothing
-        //string stringConnection = "Data Source=LIEL-ITZCHAK;Initial Catalog=SportsEquipmentSoreDB;Integrated Security=True;Pooling=False";
         ShoesDataContextDataContext dataContext = new ShoesDataContextDataContext();
         // GET: Shoes
         public ActionResult Index()
@@ -23,7 +23,7 @@ namespace Sports_equipment_store.Controllers.API
         {
             try
             {
-                List<Clothing> clothing = dataContext.Clothings.ToList();
+                List<Clothing> clothing = dataContext.Clothings.Where(item => item.TypeGarment.ToUpper() == shirtUpper).ToList();
                 if (clothing != null)
                 {
                     return View(clothing);
@@ -42,8 +42,11 @@ namespace Sports_equipment_store.Controllers.API
             try
             {
                 List<Clothing> clothing = dataContext.Clothings.ToList();
-                return View(clothing);
-
+                if (clothing != null)
+                {
+                    return View(clothing);
+                }
+                return View("empty");
             }
             catch (Exception ex)
             {
@@ -145,5 +148,39 @@ namespace Sports_equipment_store.Controllers.API
                 return View(ex);
             }
         }
+        public ActionResult OnlyLongShirts()
+        {
+            try
+            {
+                string shirt = "Shirt".ToUpper();
+                List<Clothing> clothing = new List<Clothing>();
+                foreach (Clothing singleBeged in dataContext.Clothings)
+                {
+                    if (singleBeged.TypeGarment.ToUpper() == shirt)
+                    {
+                        if (singleBeged.IsShort == false)
+                        {
+                            clothing.Add(singleBeged);
+                        }
+                    }
+                }
+                if (clothing == null)
+                {
+                    return View("not found");
+                }
+                return View(clothing);
+            }
+            catch (SqlException ex)
+            {
+                return View(ex);
+            }
+            catch (Exception ex)
+            {
+                return View(ex);
+            }
+
+        }
     }
 }
+
+

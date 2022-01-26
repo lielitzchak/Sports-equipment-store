@@ -15,17 +15,31 @@ namespace Sports_equipment_store.Controllers.API
         // GET: Pants
         public ActionResult ShowAllPants()
         {
-
-            List<Clothing> pantsList = dataContext.Clothings.Where(item => item.TypeGarment.ToUpper() == pantsType).ToList();
-            ViewBag.AllPants = pantsList;
-            return View();
+            try
+            {
+                List<Clothing> pantsList = dataContext.Clothings.Where(item => item.TypeGarment.ToUpper() == pantsType).ToList();
+                ViewBag.AllPants = pantsList;
+                return View();
+            }
+            catch (Exception ex)
+            {
+                return View(ex.Message);
+            }
         }
 
         public ActionResult ManagerClick()
         {
-            List<Clothing> pantsTable = dataContext.Clothings.Where(item => item.TypeGarment.ToUpper() == pantsType).ToList();
+            try
+            {
+                List<Clothing> pantsTable = dataContext.Clothings.Where(item => item.TypeGarment.ToUpper() == pantsType).ToList();
 
-            return View(pantsTable);
+                return View(pantsTable);
+
+            }
+            catch (Exception ex)
+            {
+                return View(ex.Message);
+            }
 
 
         }
@@ -35,7 +49,7 @@ namespace Sports_equipment_store.Controllers.API
             try
             {
                 List<Clothing> longPants = dataContext.Clothings.
-                        Where(singleBeged => singleBeged.TypeGarment.ToUpper() == pantsType).ToList();
+                        Where(singleBeged => singleBeged.TypeGarment.ToUpper() == pantsType && singleBeged.IsShort == false).ToList();
 
                 return View(longPants);
             }
@@ -48,38 +62,56 @@ namespace Sports_equipment_store.Controllers.API
                 return View(ex.Message);
             }
         }
-        //public ActionResult OnlyShortsPants()
-        //{
-        //    List<clothing> onlyPantsShirts = dbCloting.clothings.Where(item => item.clothingType == "Pants" & item.isClothingShort == true).ToList();
+        public ActionResult OnlyShorts()
+        {
+            try
+            {
+                List<Clothing> pantsShort = dataContext.Clothings.Where(item => item.TypeGarment.ToUpper() == pantsType & item.IsShort == true).ToList();
+                if (pantsShort != null)
+                {
+                    return View(pantsShort);
+                }
+                return View("empty");
+            }
+            catch (Exception ex)
+            {
+                return View(ex.Message);
+            }
+        }
 
-        //    ViewBag.onlyShortPants = onlyPantsShirts;
-        //    return View();
+        public ActionResult GetOnlyDryFitPants()
 
-        //    //return Content("<script language='javascript' type='text/javascript'>alert('Sorry item not found, Going to all pants');</script>");
-        //    //return RedirectToAction("ShowPantsall") ;
+        {
+            try
+            {
+                List<Clothing> onlyDryFitPants = dataContext.Clothings.Where(item => item.TypeGarment.ToUpper() == pantsType & item.IsDreyfit == true).ToList();
+                if (onlyDryFitPants != null)
+                {
+                    return View(onlyDryFitPants);
+                }
+                return View("empty");
+            }
+            catch (Exception ex)
+            {
+                return View(ex.Message);
+            }
+        }
+        public ActionResult SortPriceLowHigh()
+        {
+            try
+            {
+                List<Clothing> listOfShirts = dataContext.Clothings.Where(item => item.TypeGarment.ToUpper() == pantsType).OrderBy(clothe => clothe.Price).ToList();
+                if (listOfShirts != null)
+                {
+                    return View(listOfShirts);
+                }
+                return View();
+            }
+            catch (Exception ex)
+            {
+                return View(ex.Message);
+            }
 
-
-        //}
-
-        //public ActionResult GetOnlyDryFitPants()
-
-        //{
-        //    List<clothing> onlyDryFitPants = dbCloting.clothings.Where(item => item.clothingType == "Pants" & item.isClothingDrifit == true).ToList();
-
-        //    ViewBag.onlyDryFitPants = onlyDryFitPants;
-        //    return View();
-
-        //}
-
-        //public ActionResult SortByPricePants()
-        //{
-        //    List<clothing> listOfShirts = dbCloting.clothings.Where(item => item.clothingType == "Pants").OrderBy(clothe => clothe.clothingPrice).ToList();
-
-        //    ViewBag.sortByPrice = listOfShirts;
-        //    return View();
-
-        //return RedirectToAction("ShowPantsall");
-
-        //}
+        }
     }
 }

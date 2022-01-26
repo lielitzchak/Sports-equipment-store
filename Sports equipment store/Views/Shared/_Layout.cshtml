@@ -13,19 +13,65 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("show Shoes", "ShowShoes", "Shoes")</li>
-                    <li>@Html.ActionLink("show Clothing", "ShowClothing", "Clothing")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Shoes
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="@Url.Action("ShowShoes","Shoes")">All Shoes</a> <br />
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Pants
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="@Url.Action("ShowAllPants","Pants")">All Pants</a> <br />
+                            <a class="dropdown-item" href="@Url.Action("ManagerClick","Pants")">manager tables</a><br />
+                            <a class="dropdown-item" href="@Url.Action("OnlyLongPants","Pants")">Long Pants</a><br />
+                            <a class="dropdown-item" href="@Url.Action("OnlyShorts","Pants")">Shorts Pants</a><br />
+                            <a class="dropdown-item" href="@Url.Action("GetOnlyDryFitPants","Pants")"> Only DryFit Pants</a><br />
+                            <a class="dropdown-item" href="@Url.Action("SortPriceLowHigh","Pants")">sort by price low to high</a><br />
+                        </div>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Shirts
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="@Url.Action("ShowClothing","Clothing")">All Shirts</a> <br />
+                            <a class="dropdown-item" href="@Url.Action("ManagerClickClothing","Clothing")">manager tables</a><br />
+                            <a class="dropdown-item" href="@Url.Action("OnlyLongShirts","Clothing")">Long Pants</a><br />
+                            <a class="dropdown-item" href="@Url.Action("OnlyShortShirts","Clothing")">Shorts Pants</a><br />
+                            <a class="dropdown-item" href="@Url.Action("OnlyDriftShirts","Clothing")"> Only DryFit Pants</a><br />
+                            @*<a class="dropdown-item" href="@Url.Action("sortPriceLowHigh","Pants")">sort by price low to high</a><br />*@
+
+                        </div>
+                    </li>
+
+
+
+
+
+
+
+
+
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
+                    @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
+                    @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                    @*<li>@Html.ActionLink("Shoes", "ShowShoes", "Shoes")</li>*@
+                    <li>@Html.ActionLink("All Pants", "ShowAllPants", "Pants")</li>
                 </ul>
             </div>
         </div>

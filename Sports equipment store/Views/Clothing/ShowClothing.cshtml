@@ -1,25 +1,15 @@
 ﻿@using Sports_equipment_store.Models;
 
-
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown button
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <button type="button" class="dropdown-item btn btn-light">@Html.ActionLink("click to meneger", "ManagerClickClothing", "Clothing")</button> <br />
-        <button type="button" class="dropdown-item btn btn-light">@Html.ActionLink("Only Long Shirts", "OnlyLongShirt", "Clothing")</button> <br />
-        <button type="button" class="dropdown-item btn btn-light">@Html.ActionLink("Only Short Shirts", "OnlyShortShirts", "Clothing")</button>   <br />
-        <button type="button" class="dropdown-item btn btn-light">@Html.ActionLink("Only Drift Shirts", "OnlyDriftShirts", "Clothing")</button> <br />
-    </div>
-</div>
-
-
-@foreach (Clothing clothing in Model)
+@foreach (Clothing shirt in Model)
 {
-    <img src="@clothing.ImageLink_" alt="Clothings" />
-    <p>Type Garment : @clothing.TypeGarment</p>
-    <p>company: @clothing.Company</p>
-    <p>Model: @clothing.Model</p>
-    <p>price: @clothing.Price $</p>
+    if (shirt.TypeGarment.ToUpper() == "SHIRT")
+    {
+        <img src="@shirt.ImageLink_" alt="Clothings" />
+        <p>Type Garment : @shirt.TypeGarment</p>
+        <p>company: @shirt.Company</p>
+        <p>Model: @shirt.Model</p>
+        <p>price: @shirt.Price $</p>
+
+    }
 }
 

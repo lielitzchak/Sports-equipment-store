@@ -145,6 +145,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\API\ClothingController.cs" />
+    <Compile Include="Controllers\API\EquipmentController.cs" />
     <Compile Include="Controllers\API\PantsController.cs" />
     <Compile Include="Controllers\API\ShoeController.cs" />
     <Compile Include="Controllers\API\ShoesController.cs" />
@@ -156,6 +157,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ShoesStoreDataContext.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SportsEquipmentStore.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SportsEquipmentStore.dbml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -177,6 +183,14 @@
     </Content>
     <None Include="Models\ShoesStoreDataContext.dbml.layout">
       <DependentUpon>ShoesStoreDataContext.dbml</DependentUpon>
+    </None>
+    <Content Include="Models\SportsEquipmentStore.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>SportsEquipmentStore.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Models\SportsEquipmentStore.dbml.layout">
+      <DependentUpon>SportsEquipmentStore.dbml</DependentUpon>
     </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -216,6 +230,11 @@
     <Content Include="Views\Pants\ShowAllPants.cshtml" />
     <Content Include="Views\Pants\ManagerClick.cshtml" />
     <Content Include="Views\Pants\OnlyLongPants.cshtml" />
+    <Content Include="Views\Pants\OnlyShorts.cshtml" />
+    <Content Include="Views\Pants\GetOnlyDryFitPants.cshtml" />
+    <Content Include="Views\Pants\SortPriceLowHigh.cshtml" />
+    <Content Include="Views\Clothing\OnlyLongShirts.cshtml" />
+    <Content Include="Views\Equipment\AllEquipment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

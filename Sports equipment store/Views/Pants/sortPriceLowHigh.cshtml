@@ -4,6 +4,7 @@
         <thead>
             <tr>
                 <th scope="col">Id</th>
+                <th scope="col">Price</th>
                 <th scope="col">Type Garment</th>
                 <th scope="col">Company</th>
                 <th scope="col">Amount</th>
@@ -15,19 +16,17 @@
         <tbody>
             @foreach (Clothing clothing in Model)
             {
-                if (clothing.IsShort == false)
-                {
-                    <tr>
-                        <td> @clothing.Id</td>
-                        <td> @clothing.TypeGarment</td>
-                        <td> @clothing.Company</td>
-                        <td> @clothing.Model</td>
-                        <td> @clothing.Amount</td>
-                        <td> @clothing.IsShort</td>
-                        <td> @clothing.IsDreyfit</td>
-                        <td><img src="@clothing.ImageLink_" alt="" class="img-thumbnail" /></td>
-                    </tr>
-                }
+                <tr>
+                    <td> @clothing.Id</td>
+                    <td> @clothing.Price</td>
+                    <td> @clothing.TypeGarment</td>
+                    <td> @clothing.Company</td>
+                    <td> @clothing.Model</td>
+                    <td> @clothing.Amount</td>
+                    <td> @clothing.IsShort</td>
+                    <td> @clothing.IsDreyfit</td>
+                    <td><img src="@clothing.ImageLink_" alt="" class="img-thumbnail" /></td>
+                </tr>
             }
         </tbody>
     </table>
