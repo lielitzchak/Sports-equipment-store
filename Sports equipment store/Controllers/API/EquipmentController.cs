@@ -25,8 +25,45 @@ namespace Sports_equipment_store.Controllers.API
             {
                 return View(sportsEquipment);
             }
-            return View();
+            return View("empty");
         }
-    }
 
+        public ActionResult ManagerClick()
+        {
+            try
+            {
+
+                List<SportsEquipment> sportsEquipment = SportsEquipmentDB.SportsEquipments.ToList();
+                if (sportsEquipment.Count > 0)
+                {
+                    return View(sportsEquipment);
+                }
+                return View("empty");
+            }
+            catch (Exception ex)
+            {
+                return View(ex.Message);
+            }
+        }
+
+        public ActionResult FootballEquipment()
+        {
+            try
+            {
+
+                List<SportsEquipment> sportsEquipment = SportsEquipmentDB.SportsEquipments.
+                        Where(singleBeged => singleBeged.sportType.ToUpper() == "FOOTBALL").ToList();
+                if (sportsEquipment.Count > 0)
+                {
+                    return View(sportsEquipment);
+                }
+                return View("empty");
+            }
+            catch (Exception ex)
+            {
+                return View(ex.Message);
+            }
+        }
+
+    }
 }

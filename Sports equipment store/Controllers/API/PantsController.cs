@@ -26,7 +26,6 @@ namespace Sports_equipment_store.Controllers.API
                 return View(ex.Message);
             }
         }
-
         public ActionResult ManagerClick()
         {
             try
@@ -43,7 +42,6 @@ namespace Sports_equipment_store.Controllers.API
 
 
         }
-
         public ActionResult OnlyLongPants()
         {
             try
@@ -78,7 +76,6 @@ namespace Sports_equipment_store.Controllers.API
                 return View(ex.Message);
             }
         }
-
         public ActionResult GetOnlyDryFitPants()
 
         {

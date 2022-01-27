@@ -1,7 +1,19 @@
-﻿
+﻿@using Sports_equipment_store.Models;
+
 @{
-    ViewBag.Title = "AllEquipment";
+    ViewBag.Title = "PantsPage";
 }
+<div>
 
-<h2>AllEquipment</h2>
-
+    <div class="cardContainer">
+        @foreach (SportsEquipment equipment in Model)
+        {
+            <div class="cardDiv">
+                <img src=@equipment.picture class="">
+                <h4 class="">type:@equipment.sportType</h4>
+                <p class="">price: @equipment.price$ </p>
+                <p> company: @equipment.company</p>
+            </div>
+        }
+    </div>
+</div>

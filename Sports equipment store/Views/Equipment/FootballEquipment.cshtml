@@ -1,0 +1,35 @@
+﻿@using Sports_equipment_store.Models;
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Type Garment</th>
+                <th scope="col">Company</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Is Short</th>
+                <th scope="col">Is Dreyfit</th>
+                <th scope="col">image</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (SportsEquipment equipment in Model)
+            {
+                @*if (equipment.IsShort == false)
+                    {*@
+                <tr>
+                    <td> @equipment.Id</td>
+                    <td> @equipment.sportType</td>
+                    <td> @equipment.company</td>
+                    <td> @equipment.Amount</td>
+                    <td> @equipment.</td>
+                    <td> @equipment.IsShort</td>
+                    <td> @equipment.IsDreyfit</td>
+                    <td><img src="@equipment.picture" alt="" class="img-thumbnail" /></td>
+                </tr>
+                @*}*@
+            }
+        </tbody>
+    </table>
+</div>
+

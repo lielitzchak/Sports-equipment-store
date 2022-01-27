@@ -235,6 +235,8 @@
     <Content Include="Views\Pants\SortPriceLowHigh.cshtml" />
     <Content Include="Views\Clothing\OnlyLongShirts.cshtml" />
     <Content Include="Views\Equipment\AllEquipment.cshtml" />
+    <Content Include="Views\Equipment\ManagerClick.cshtml" />
+    <Content Include="Views\Equipment\FootballEquipment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
