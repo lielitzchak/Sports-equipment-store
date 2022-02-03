@@ -145,18 +145,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\API\ClothingController.cs" />
+    <Compile Include="Controllers\API\ClothingsController.cs" />
     <Compile Include="Controllers\API\EquipmentController.cs" />
-    <Compile Include="Controllers\API\PantsController.cs" />
+    <Compile Include="Controllers\API\PantController.cs" />
+    <Compile Include="Controllers\API\PantsApiController.cs" />
     <Compile Include="Controllers\API\ShoeController.cs" />
     <Compile Include="Controllers\API\ShoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ShoesStoreDataContext.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ShoesStoreDataContext.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\SportsEquipmentStore.designer.cs">
       <AutoGen>True</AutoGen>
@@ -176,14 +173,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Models\ShoesStoreDataContext.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>ShoesStoreDataContext.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
-    <None Include="Models\ShoesStoreDataContext.dbml.layout">
-      <DependentUpon>ShoesStoreDataContext.dbml</DependentUpon>
-    </None>
     <Content Include="Models\SportsEquipmentStore.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>SportsEquipmentStore.designer.cs</LastGenOutput>
@@ -237,6 +226,7 @@
     <Content Include="Views\Equipment\AllEquipment.cshtml" />
     <Content Include="Views\Equipment\ManagerClick.cshtml" />
     <Content Include="Views\Equipment\FootballEquipment.cshtml" />
+    <Content Include="Views\Equipment\BasketballEquipment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

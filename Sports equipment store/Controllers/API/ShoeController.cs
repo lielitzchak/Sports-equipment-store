@@ -13,7 +13,7 @@ namespace Sports_equipment_store.Controllers.API
     public class ShoeController : ApiController
     {
         static string StringConnection = "Data Source=LIEL-ITZCHAK;Initial Catalog=SportsEquipmentSoreDB;Integrated Security=True;Pooling=False";
-        public ShoesDataContextDataContext shoesDB = new ShoesDataContextDataContext(StringConnection);
+        public SportsEquipmentStoreDataContext shoesDB = new SportsEquipmentStoreDataContext(StringConnection);
         // GET: api/Shoe
         public IHttpActionResult Get()
         {

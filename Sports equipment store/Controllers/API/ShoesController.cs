@@ -9,8 +9,8 @@ namespace Sports_equipment_store.Controllers.API
 {
     public class ShoesController : Controller
     {
-       static string stringConnection = "Data Source=LIEL-ITZCHAK;Initial Catalog=SportsEquipmentSoreDB;Integrated Security=True;Pooling=False";
-        ShoesDataContextDataContext dataContext = new ShoesDataContextDataContext(stringConnection);
+        static string stringConnection = "Data Source=LIEL-ITZCHAK;Initial Catalog=SportsEquipmentSoreDB;Integrated Security=True;Pooling=False";
+        SportsEquipmentStoreDataContext dataContext = new SportsEquipmentStoreDataContext(stringConnection);
         // GET: Shoes
         public ActionResult Index()
         {
@@ -58,7 +58,7 @@ namespace Sports_equipment_store.Controllers.API
                     if (sho.isSale == true)
                     {
                         shoes.Add(sho);
-                    } 
+                    }
                 }
                 return View(shoes);
             }

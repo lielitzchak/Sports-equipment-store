@@ -8,10 +8,10 @@ using System.Web.Mvc;
 
 namespace Sports_equipment_store.Controllers.API
 {
-    public class PantsController : Controller
+    public class PantController : Controller
     {
         public static string pantsType = "pants".ToUpper();
-        ShoesDataContextDataContext dataContext = new ShoesDataContextDataContext();
+        public SportsEquipmentStoreDataContext dataContext = new SportsEquipmentStoreDataContext();
         // GET: Pants
         public ActionResult ShowAllPants()
         {
@@ -64,7 +64,7 @@ namespace Sports_equipment_store.Controllers.API
         {
             try
             {
-                List<Clothing> pantsShort = dataContext.Clothings.Where(item => item.TypeGarment.ToUpper() == pantsType & item.IsShort == true).ToList();
+                List<Clothing> pantsShort = dataContext.Clothings.ToList();
                 if (pantsShort != null)
                 {
                     return View(pantsShort);

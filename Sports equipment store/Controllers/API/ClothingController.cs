@@ -12,7 +12,7 @@ namespace Sports_equipment_store.Controllers.API
     {
         public static string shirtUpper = "SHIRT";
         // GET: Clothing
-        ShoesDataContextDataContext dataContext = new ShoesDataContextDataContext();
+        SportsEquipmentStoreDataContext dataContext = new SportsEquipmentStoreDataContext();
         // GET: Shoes
         public ActionResult Index()
         {

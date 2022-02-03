@@ -64,6 +64,24 @@ namespace Sports_equipment_store.Controllers.API
                 return View(ex.Message);
             }
         }
+        public ActionResult BasketballEquipment()
+        {
+            try
+            {
+
+                List<SportsEquipment> sportsEquipment = SportsEquipmentDB.SportsEquipments.
+                        Where(singleBeged => singleBeged.sportType.ToUpper() == "BASKETBALL").ToList();
+                if (sportsEquipment.Count > 0)
+                {
+                    return View(sportsEquipment);
+                }
+                return View("empty");
+            }
+            catch (Exception ex)
+            {
+                return View(ex.Message);
+            }
+        }
 
     }
 }
