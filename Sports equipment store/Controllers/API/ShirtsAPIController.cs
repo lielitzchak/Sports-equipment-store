@@ -8,17 +8,17 @@ using System.Web.Http;
 
 namespace Sports_equipment_store.Controllers.API
 {
-    public class PantsApiController : ApiController
+    public class ShirtsAPIController : ApiController
     {
-        public SportsEquipmentStoreDataContext dataContext = new SportsEquipmentStoreDataContext();
+        static public SportsEquipmentStoreDataContext dataContext = new SportsEquipmentStoreDataContext();
+        private static readonly List<Clothing> clothingsShirts = dataContext.Clothings.Where(item => item.TypeGarment.ToUpper() == "SHIRT").ToList();
 
-        // GET: api/PantsApi
+        // GET: api/ShirtsAPI
         public IHttpActionResult Get()
         {
             try
             {
-                List<Clothing> clothingsPants = dataContext.Clothings.Where(item => item.TypeGarment.ToUpper() == "PANTS").ToList();
-                return Ok(new { clothingsPants });
+                return Ok(new { clothingsShirts });
             }
             catch (Exception ex)
             {
@@ -26,13 +26,13 @@ namespace Sports_equipment_store.Controllers.API
             }
         }
 
-        // GET: api/PantsApi/5
+        // GET: api/ShirtsAPI/5
         public IHttpActionResult Get(int id)
         {
             try
             {
-                Clothing Clothing = dataContext.Clothings.Single(item => item.Id == id);
-                return Ok(new { Clothing });
+                Clothing singleShirt = dataContext.Clothings.Single(item => item.Id == id);
+                return Ok(new { singleShirt });
             }
             catch (Exception ex)
             {
@@ -40,12 +40,12 @@ namespace Sports_equipment_store.Controllers.API
             }
         }
 
-        // POST: api/PantsApi
-        public IHttpActionResult Post([FromBody] Clothing Pants)
+        // POST: api/ShirtsAPI
+        public IHttpActionResult Post([FromBody] Clothing shirt)
         {
             try
             {
-                dataContext.Clothings.InsertOnSubmit(Pants);
+                dataContext.Clothings.InsertOnSubmit(shirt);
                 dataContext.SubmitChanges();
                 return Ok();
             }
@@ -55,21 +55,21 @@ namespace Sports_equipment_store.Controllers.API
             }
         }
 
-        // PUT: api/PantsApi/5
-        public IHttpActionResult Put(int id, [FromBody] Clothing clothing)
+        // PUT: api/ShirtsAPI/5
+        public IHttpActionResult Put(int id, [FromBody] Clothing newShirt)
         {
             try
             {
-                Clothing singlePant = dataContext.Clothings.Single(item => item.Id == id);
-                if (singlePant != null)
+                Clothing singleShirt = dataContext.Clothings.Single(item => item.Id == id);
+                if (singleShirt != null)
                 {
-                    singlePant.TypeGarment = clothing.TypeGarment;
-                    singlePant.Company = clothing.Company;
-                    singlePant.Model = clothing.Model;
-                    singlePant.Price = clothing.Price;
-                    singlePant.Amount = clothing.Amount;
-                    singlePant.IsShort = clothing.IsShort;
-                    singlePant.ImageLink_ = clothing.ImageLink_;
+                    singleShirt.TypeGarment = newShirt.TypeGarment;
+                    singleShirt.Company = newShirt.Company;
+                    singleShirt.Model = newShirt.Model;
+                    singleShirt.Price = newShirt.Price;
+                    singleShirt.Amount = newShirt.Amount;
+                    singleShirt.IsShort = newShirt.IsShort;
+                    singleShirt.ImageLink_ = newShirt.ImageLink_;
                     dataContext.SubmitChanges();
                     return Ok("This item has been updated");
                 }
@@ -81,15 +81,16 @@ namespace Sports_equipment_store.Controllers.API
             }
         }
 
-        // DELETE: api/PantsApi/5
+
+        // DELETE: api/ShirtsAPI/5
         public IHttpActionResult Delete(int id)
         {
             try
             {
-                Clothing SinglePant = dataContext.Clothings.Single(item => item.Id == id);
-                if (SinglePant != null)
+                Clothing singleShirt = dataContext.Clothings.Single(item => item.Id == id);
+                if (singleShirt != null)
                 {
-                    dataContext.Clothings.DeleteOnSubmit(SinglePant);
+                    dataContext.Clothings.DeleteOnSubmit(singleShirt);
                     dataContext.SubmitChanges();
                     return Ok("This item has been deleted");
                 }
@@ -100,5 +101,6 @@ namespace Sports_equipment_store.Controllers.API
                 return BadRequest(ex.Message);
             }
         }
+
     }
 }
