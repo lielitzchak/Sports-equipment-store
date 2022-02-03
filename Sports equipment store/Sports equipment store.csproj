@@ -147,6 +147,7 @@
     <Compile Include="Controllers\API\ClothingController.cs" />
     <Compile Include="Controllers\API\ClothingsController.cs" />
     <Compile Include="Controllers\API\EquipmentController.cs" />
+    <Compile Include="Controllers\API\EquipmentsApiController.cs" />
     <Compile Include="Controllers\API\PantController.cs" />
     <Compile Include="Controllers\API\PantsApiController.cs" />
     <Compile Include="Controllers\API\ShirtsAPIController.cs" />
