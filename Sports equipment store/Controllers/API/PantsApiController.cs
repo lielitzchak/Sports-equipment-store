@@ -22,6 +22,7 @@ namespace Sports_equipment_store.Controllers.API
             }
             catch (Exception ex)
             {
+                
                 return BadRequest(ex.Message);
             }
         }
