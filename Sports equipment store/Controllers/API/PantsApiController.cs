@@ -21,6 +21,7 @@ namespace Sports_equipment_store.Controllers.API
                 return Ok(new { clothingsPants });
             }
             catch (Exception ex)
+
             {
                 
                 return BadRequest(ex.Message);
